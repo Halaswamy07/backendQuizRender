@@ -1,13 +1,18 @@
 {
   "name": "quizzie",
   "version": "1.0.0",
-  "description": "",
+  "description": "A quiz builder application using the MERN stack.",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Halaswamy G",
   "license": "ISC",
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "dependencies": {
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
@@ -17,5 +22,8 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
