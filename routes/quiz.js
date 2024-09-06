@@ -2,7 +2,11 @@ const express = require('express');
 const router = express.Router();
 const Quiz = require('../models/quizCreate');
 
+<<<<<<< HEAD
 // Post (Create) API for Quiz creation
+=======
+// Post(Create) API for Quiz creation
+>>>>>>> e96ba7f9dd59f57e7a66f54314865ddb83e9bea6
 router.post('/quiz', async (req, res) => {
     try {
         const {
@@ -34,6 +38,10 @@ router.post('/quiz', async (req, res) => {
             textField
         } = req.body;
 
+<<<<<<< HEAD
+=======
+        // Save the quiz data to the database
+>>>>>>> e96ba7f9dd59f57e7a66f54314865ddb83e9bea6
         const quiz = new Quiz({
             quizName,
             typeText,
@@ -60,6 +68,7 @@ router.post('/quiz', async (req, res) => {
             imgInCorrectAns,
             textImgCorrectAns,
             textImgInCorrectAns,
+<<<<<<< HEAD
             textField
         });
 
@@ -68,6 +77,18 @@ router.post('/quiz', async (req, res) => {
             success: true,
             message: 'Quiz saved successfully!',
             quizId: savedQuiz._id  // Return the quiz ID
+=======
+            textField // Include the new field
+        });
+
+        const savedQuiz = await quiz.save();
+        console.log("Backend Data to save", savedQuiz);
+
+        res.status(201).json({
+            success: true,
+            message: 'Quiz saved successfully!',
+            newQuizDATA: savedQuiz,
+>>>>>>> e96ba7f9dd59f57e7a66f54314865ddb83e9bea6
         });
     } catch (error) {
         console.error('Error saving quiz data:', error);
@@ -75,7 +96,11 @@ router.post('/quiz', async (req, res) => {
     }
 });
 
+<<<<<<< HEAD
 // Get (Fetch) API for showing all created quizzes
+=======
+// Get(Fetching) API for showing all created quizzes
+>>>>>>> e96ba7f9dd59f57e7a66f54314865ddb83e9bea6
 router.get('/quiz', async (req, res) => {
     try {
         const quizData = await Quiz.find();
@@ -109,11 +134,19 @@ router.get('/quiz/:id', async (req, res) => {
     try {
         const quizId = req.params.id;
         const quizData = await Quiz.findById(quizId);
+<<<<<<< HEAD
 
         if (!quizData) {
             return res.status(404).json({ success: false, error: 'Quiz not found' });
         }
 
+=======
+  
+        if (!quizData) {
+            return res.status(404).json({ success: false, error: 'Quiz not found' });
+        }
+  
+>>>>>>> e96ba7f9dd59f57e7a66f54314865ddb83e9bea6
         res.status(200).json(quizData);
     } catch (error) {
         console.error('Error fetching quiz data:', error);
